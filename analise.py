@@ -14,6 +14,7 @@
 # Passo 1:
 #  Importar a base de dados (vamos mofica-lá dentro do python, e não mexer no arquivo original).
 import pandas as pd
+from tomlkit import table
 
 tabela = pd.read_csv("telecom_users.csv")
 
@@ -61,13 +62,24 @@ tabela["TotalGasto"] = pd.to_numeric(tabela["TotalGasto"], errors="coerce") # Pa
 
 tabela = tabela.drop("Unnamed: 0", axis=1) # o "drop" exclui coisas
 
+# INFORMAÇÕES VÁZIAS
+            # DROPNA (exclui linhas ou colunas que possuem todas ou algumas informações vázias, depende do parâmetro)
+# precisa de dois parâmetros, o <<how>>, que pode ser "all" (todas as informações) ou "any" (alguma informação), e o eixo
+
+# colunas completamente vázias
+tabela = tabela.dropna(how="all", axis=1)
+
+# linhas que tem alguma informação vázia
+#                                           IMPORTANTE
+#                                se a proporção for pequena, como exemplo na coluna "TotalGasto", existem 10 linhas     com                              alguma informação vázia, porém ao todo são quase 6000 linhas, excluir essas dez não                              impactará tanto na análise.
+tabela = tabela.dropna(how="any", axis=0)
+
 # Tabela atualizada
 print(tabela.info())
 
-
-
 # Passo 4:
 #  Análise inicial dos dados.
+
 # Confirmar se o que te foi passado está certo
 
 # Passo 5:
