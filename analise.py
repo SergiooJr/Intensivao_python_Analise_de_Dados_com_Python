@@ -75,14 +75,37 @@ tabela = tabela.dropna(how="all", axis=1)
 tabela = tabela.dropna(how="any", axis=0)
 
 # Tabela atualizada
-print(tabela.info())
+'''print(tabela.info())'''
+
+
 
 # Passo 4:
 #  Análise inicial dos dados.
+# Confirmar se o que te foi passado está certo.
 
-# Confirmar se o que te foi passado está certo
+# Para sabermos se 26% realmente cancelaram, temos que analisar a coluna "Churn"
+# 1° Contar quantos clientes cancelaram e quantos não
+'''print(tabela["Churn"].value_counts())''' # conta os valores da coluna
+# percentualmente falando
+'''print(tabela["Churn"].value_counts(normalize=True))''' # o "normalize" tranforma os valores em um percentual do total
+# formatado
+'''print(tabela["Churn"].value_counts(normalize=True).map("{:.1%}".format))''' # dois pontos significa que está sendo formatado, e o ponto um, signifca uma casa percentual (o tipo fica como object)
+# resultado: 73% não cancelaram, 26% cancelaram
+
+
 
 # Passo 5:
 #  Descobrir os motivos do cancelamento.
+#                           GRÁFICOS E MINI DASHBORS (utilizando plotly)
+# o plotly aceita vários tipos de gráficos, ex.: de linha, histograma, etc
+import plotly.express as px
+
+# todo gráfico em python é feito em duas etapas:
+# 1° etapa: criar o gráfico
+for coluna in tabela.columns:
+    grafico = px.histogram(tabela, x=coluna, color="Churn") # "x" é a coluna que queremos analisar, e "color" é a coluna que queremos comparar 
+# 2° etapa: exibir o gráfico
+    grafico.show()
+
 
 
