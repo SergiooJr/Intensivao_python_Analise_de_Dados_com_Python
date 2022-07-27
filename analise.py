@@ -108,4 +108,22 @@ for coluna in tabela.columns:
     grafico.show()
 
 
+# CONCLUSÕES E AÇÕES
+'''
+- Clientes que estão a pouco tempo cancelam muito
+    - Poderíamos fazer alguma promoção dando o 1° mês de graça
+    - O ínicio do serviço pro cliente ta sendo muito confuso
+    - Podemos criar incentivos nos primeiros meses - primeiro ano mais barato
 
+- Boleto eletrônico tem MUITO mais cancelamento do que as outras formas de pagamento
+    - Oferecer desconto nas outras formas de pagamento
+
+- Clientes com contrato mensal tem MUITO ais chance de cancelar
+    - Dar desconto para pagar a anuidade
+
+- Quanto mais serviço o cliente tem, menor a chance dele cancelar
+    - Podemos oferecer serviços extras quase de graça
+
+- Cliente com mais linhas, com família maior tem menos chance de cancelar
+    - 2° linha de graça ou com desconto
+'''
