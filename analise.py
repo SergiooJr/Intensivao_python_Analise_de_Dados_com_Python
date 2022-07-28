@@ -14,7 +14,6 @@
 # Passo 1:
 #  Importar a base de dados (vamos mofica-lá dentro do python, e não mexer no arquivo original).
 import pandas as pd
-from tomlkit import table
 
 tabela = pd.read_csv("telecom_users.csv")
 
